@@ -1,6 +1,17 @@
 import React from "react";
+import memeData from "../memeData";
 
 function input() {
+  // let imageUrl = memeData.data.memes.map((x) => {
+  //   console.log(x.url);
+  // });
+
+  function imageUrl() {
+    let data = memeData.data.memes;
+    let randomNumber = Math.floor(Math.random() * data.length);
+    let url = data[randomNumber].url;
+    console.log(url);
+  }
   return (
     <section className="input-section-wrapper">
       <div className="inputs">
@@ -17,7 +28,7 @@ function input() {
       </div>
 
       <div>
-        <button className="button-section" type="submit">
+        <button className="button-section" type="submit" onClick={imageUrl}>
           <label htmlFor="button-section" className="labels">
             GET NEW IMAGE
           </label>
