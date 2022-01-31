@@ -1,12 +1,16 @@
 import React from "react";
 import Header from "./components/Header";
 import Input from "./components/input";
+import Cond from "./components/condtional";
+import Fomrms from "./components/forms";
+import PracticeForm from "./components/practiceForm";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Input />
+      <PracticeForm />
+      {/* <Header />
+      <Input /> */}
     </div>
   );
 };
