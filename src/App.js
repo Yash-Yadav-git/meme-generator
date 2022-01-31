@@ -4,11 +4,12 @@ import Input from "./components/input";
 import Cond from "./components/condtional";
 import Fomrms from "./components/forms";
 import PracticeForm from "./components/practiceForm";
+import PracticeApi from "./components/practiceAPI";
 
 const App = () => {
   return (
     <div>
-      <PracticeForm />
+      <PracticeApi />
       {/* <Header />
       <Input /> */}
     </div>
