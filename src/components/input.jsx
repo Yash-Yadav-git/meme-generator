@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import memeData from "../memeData";
 
-function input() {
-  // let imageUrl = memeData.data.memes.map((x) => {
-  //   console.log(x.url);
-  // });
+const Input = ()=> {
+
+  const [image,setImage]= useState('https://i.imgflip.com/30b1gx.jpg')
+  const [uppterText,setUpperText] = useState('')
+  const [lowerText,setLowerText] = useState('')
+
 
   function imageUrl() {
     let data = memeData.data.memes;
     let randomNumber = Math.floor(Math.random() * data.length);
     let url = data[randomNumber].url;
-    console.log(url);
+    setImage(url)
   }
+
+  const handleUpperChange = (e)=>{
+    setUpperText(e.target.value)
+  }
+  const handlelowerChange = (e)=>{
+    setLowerText(e.target.value)
+  }
+
+  const imagewrapper= {
+    padding: "35px",
+    marginBottom: "10%",
+    height: "600px",
+    backgroundImage: `url(${image})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+    border: "2px solid #d5d4d8",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent: 'space-between',
+    alignItems:'center',
+    fontSize:'50px',
+    textTransform:'uppercase'
+  }
+  
   return (
     <section className="input-section-wrapper">
       <div className="inputs">
@@ -19,11 +46,13 @@ function input() {
           type="text"
           className="input-1"
           placeholder="Enter Top Line Text Here"
+          onChange={handleUpperChange}
         />
         <input
           type="text"
           className="input-1"
           placeholder="Enter Bottom Line Text Here"
+          onChange={handlelowerChange}
         />
       </div>
 
@@ -34,9 +63,13 @@ function input() {
           </label>
         </button>
       </div>
-      <div className="image-wrapper"></div>
+      <div style={imagewrapper} >
+     
+      <span>{uppterText}</span>
+        <span>{lowerText}</span>
+      </div>
     </section>
   );
 }
 
-export default input;
+export default Input;
